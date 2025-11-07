@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Italiana - Eleganza senza tempo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header simplifié */
+        header {
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            width: 180px;
+            height: 60px;
+            background-color: #e74c3c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://tse2.mm.bing.net/th/id/OIP.wk9JeM-AwO8J5dsl69tDeQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: #e74c3c;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background-color: #fff;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 100px 5%;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Handbags Section */
+        .handbags {
+            padding: 100px 5%;
+            background-color: #fff;
+        }
+
+        .handbags-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .handbag-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .handbag-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .handbag-image {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .handbag-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .handbag-card:hover .handbag-image img {
+            transform: scale(1.05);
+        }
+
+        .handbag-info {
+            padding: 25px;
+        }
+
+        .handbag-name {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .handbag-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Featured Collection */
+        .featured-collection {
+            padding: 100px 5%;
+            background-color: #f8f9fa;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .collection-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .collection-image {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover .collection-image img {
+            transform: scale(1.05);
+        }
+
+        .collection-info {
+            padding: 20px;
+        }
+
+        .collection-name {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 100px 5%;
+            background-color: #f1f1f1;
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e74c3c;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #e74c3c;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #34495e;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .category-grid, .collection-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .handbags-grid, .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-content {
+                flex: none;
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-grid, .collection-grid, .handbags-grid, .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .category-grid, .collection-grid, .handbags-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="logo.png" width="150">
+        <div class="nav-links">
+            <a href="#about">Chi Siamo</a>
+            <a href="#categories">Collezioni</a>
+            <a href="#handbags">Borse</a>
+            <a href="#collection">Novità</a>
+            <a href="#contact">Contatti</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Eleganza Senza Tempo</h1>
+            <p>Scopri l'autentico stile italiano attraverso le nostre collezioni di abbigliamento e accessori, dove tradizione e innovazione si incontrano.</p>
+            <button class="cta-button">Scopri la Collezione</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Negozio di lusso">
+        </div>
+        <div class="about-content">
+            <h2>La Nostra Storia</h2>
+            <p>Fondata nel cuore di Milano nel 1985, Moda Italiana incarna l'essenza dell'artigianalità e del design italiano. La nostra passione per la qualità e l'attenzione ai dettagli ci hanno resi un punto di riferimento nel mondo della moda di lusso.</p>
+            <p>Ogni creazione racconta una storia di tradizione e innovazione, unendo il savoir-faire artigianale con le tendenze contemporanee. I nostri maestri artigiani dedicano ore di lavoro meticoloso a ogni singolo pezzo, garantendo un prodotto di eccellenza.</p>
+            <p>La nostra filosofia si basa su tre principi fondamentali: qualità senza compromessi, sostenibilità responsabile e stile senza tempo che attraversa le generazioni.</p>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Le Nostre Collezioni</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Abbigliamento Uomo">
+                <div class="category-name">Uomo</div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Abbigliamento Donna">
+                <div class="category-name">Donna</div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borse">
+                <div class="category-name">Borse</div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Accessori">
+                <div class="category-name">Accessori</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Handbags Section -->
+    <section class="handbags" id="handbags">
+        <h2 class="section-title">Le Nostre Borse</h2>
+        <div class="handbags-grid">
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borsa Tracolla">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Borsa Tracolla Elegante</div>
+                    <div class="handbag-description">Realizzata in pelle italiana di alta qualità, questa borsa tracolla unisce funzionalità e stile. Perfetta per l'uso quotidiano con un tocco di eleganza.</div>
+                </div>
+            </div>
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borsa a Spalla">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Borsa a Spalla Classica</div>
+                    <div class="handbag-description">Design senza tempo in pelle scamosciata con finiture in ottone. Compagnia ideale per occasioni speciali e serate eleganti.</div>
+                </div>
+            </div>
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Zaino Elegante">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Zaino Elegante</div>
+                    <div class="handbag-description">Combinazione perfetta tra comfort e stile. Realizzato in pelle full-grain con interni organizzati. Ideale per la città o viaggi brevi.</div>
+                </div>
+            </div>
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borsa Clutch">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Clutch Serale</div>
+                    <div class="handbag-description">Piccola ma raffinata, questa clutch in seta con ricami artigianali è l'accessorio perfetto per serate di gala ed eventi speciali.</div>
+                </div>
+            </div>
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1582142306909-195724d1a6ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borsa Tote">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Borsa Tote Spaziosa</div>
+                    <div class="handbag-description">Ampia e pratica, questa tote è ideale per il lavoro o per le giornate intense. Design minimalista con dettagli raffinati in pelle.</div>
+                </div>
+            </div>
+            <div class="handbag-card">
+                <div class="handbag-image">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Borsa Messenger">
+                </div>
+                <div class="handbag-info">
+                    <div class="handbag-name">Borsa Messenger</div>
+                    <div class="handbag-description">Ispirata allo stile urbano ma con un tocco di eleganza italiana. Perfetta per l'uomo moderno e dinamico che apprezza i dettagli.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured-collection" id="collection">
+        <h2 class="section-title">Collezione In Evidenza</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Giacca Uomo">
+                </div>
+                <div class="collection-info">
+                    <div class="collection-name">Giacca Elegante Uomo</div>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1529903384028-929ae5dccdf1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Vestito Donna">
+                </div>
+                <div class="collection-info">
+                    <div class="collection-name">Vestito Elegante Donna</div>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Scarpe Uomo">
+                </div>
+                <div class="collection-info">
+                    <div class="collection-name">Scarpe Eleganti Uomo</div>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="Occhiali da Sole">
+                </div>
+                <div class="collection-info">
+                    <div class="collection-name">Occhiali da Sole</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">Dicono di Noi</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">"La qualità dei prodotti Moda Italiana è eccezionale. Ho acquistato una borsa tre anni fa e sembra ancora nuova nonostante l'uso quotidiano. L'attenzione ai dettagli è incredibile."</div>
+                <div class="testimonial-author">- Maria Rossi, Milano</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">"Servizio clienti impeccabile e prodotti che raccontano la vera essenza dello stile italiano. Non potrei essere più soddisfatto del mio acquisto. La vestibilità è perfetta."</div>
+                <div class="testimonial-author">- Luca Bianchi, Roma</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">"Ogni volta che indosso un capo Moda Italiana ricevo complimenti. I materiali sono di altissima qualità e il design è sempre attuale nonostante il passare delle stagioni."</div>
+                <div class="testimonial-author">- Giulia Verdi, Firenze</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="contact">
+        <h2 class="section-title">I Nostri Atelier</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44719.10085020725!2d9.158553944908826!3d45.46283205332014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c1493f1275e7%3A0x3cffcd13c6740e8d!2sMilano%20MI%2C%20Italia!5e0!3m2!1sit!2sfr!4v1649965462085!5m2!1sit!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Moda Italiana</h3>
+                <ul>
+                    <li><a href="#about">Chi Siamo</a></li>
+                    <li><a href="#">Storia</a></li>
+                    <li><a href="#">Mission</a></li>
+                    <li><a href="#">Sostenibilità</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Collezioni</h3>
+                <ul>
+                    <li><a href="#categories">Uomo</a></li>
+                    <li><a href="#categories">Donna</a></li>
+                    <li><a href="#handbags">Borse</a></li>
+                    <li><a href="#categories">Accessori</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Servizi</h3>
+                <ul>
+                    <li><a href="#">Personal Shopping</a></li>
+                    <li><a href="#">Assistenza Clienti</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contattaci</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contatti</h3>
+                <ul>
+                    <li>Via Montenapoleone 15, Milano</li>
+                    <li>+39 02 1234567</li>
+                    <li>info@modaitaliana.it</li>
+                    <li>Lun-Sab: 9:00-20:00</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">TW</a>
+                    <a href="#">PT</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Moda Italiana. Tutti i diritti riservati. | Design con amore in Italia
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.category-card, .handbag-card, .collection-card, .testimonial-card');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initialiser les éléments
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Vérifier au chargement initial
+        });
+    </script>
+</body>
+</html>
